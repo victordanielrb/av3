@@ -1,12 +1,16 @@
 import { mysqlTable, serial, varchar, int, bigint, text, mysqlEnum } from 'drizzle-orm/mysql-core';
+import {
+  TipoAeronave, TipoPeca, StatusPeca, StatusEtapa,
+  NivelPermissao, TipoTeste, ResultadoTeste,
+} from '../tipo/enums';
 
-export const tipoAeronaveEnum = mysqlEnum('tipo_aeronave', ['COMERCIAL', 'MILITAR']);
-export const tipoPecaEnum = mysqlEnum('tipo_peca', ['NACIONAL', 'IMPORTADA']);
-export const statusPecaEnum = mysqlEnum('status_peca', ['EM_PRODUCAO', 'EM_TRANSPORTE', 'PRONTA']);
-export const statusEtapaEnum = mysqlEnum('status_etapa', ['PENDENTE', 'ANDAMENTO', 'CONCLUIDA']);
-export const nivelPermissaoEnum = mysqlEnum('nivel_permissao', ['ADMINISTRADOR', 'ENGENHEIRO', 'OPERADOR']);
-export const tipoTesteEnum = mysqlEnum('tipo_teste', ['ELETRICO', 'HIDRAULICO', 'AERODINAMICO']);
-export const resultadoTesteEnum = mysqlEnum('resultado_teste', ['APROVADO', 'REPROVADO']);
+export const tipoAeronaveEnum    = mysqlEnum('tipo_aeronave',    Object.values(TipoAeronave)    as [string, ...string[]]);
+export const tipoPecaEnum        = mysqlEnum('tipo_peca',        Object.values(TipoPeca)        as [string, ...string[]]);
+export const statusPecaEnum      = mysqlEnum('status_peca',      Object.values(StatusPeca)      as [string, ...string[]]);
+export const statusEtapaEnum     = mysqlEnum('status_etapa',     Object.values(StatusEtapa)     as [string, ...string[]]);
+export const nivelPermissaoEnum  = mysqlEnum('nivel_permissao',  Object.values(NivelPermissao)  as [string, ...string[]]);
+export const tipoTesteEnum       = mysqlEnum('tipo_teste',       Object.values(TipoTeste)       as [string, ...string[]]);
+export const resultadoTesteEnum  = mysqlEnum('resultado_teste',  Object.values(ResultadoTeste)  as [string, ...string[]]);
 
 export const aeronaves = mysqlTable('aeronaves', {
   codigo: varchar('codigo', { length: 50 }).primaryKey(),
@@ -40,7 +44,7 @@ export const etapas = mysqlTable('etapas', {
   aeronaveCodigo: varchar('aeronave_codigo', { length: 50 }).notNull().references(() => aeronaves.codigo, { onDelete: 'cascade' }),
   nome: varchar('nome', { length: 255 }).notNull(),
   prazo: varchar('prazo', { length: 50 }).notNull(),
-  status: statusEtapaEnum.notNull().default('PENDENTE'),
+  status: statusEtapaEnum.notNull().default(StatusEtapa.PENDENTE),
 });
 
 export const testes = mysqlTable('testes', {

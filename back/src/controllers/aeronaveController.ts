@@ -11,6 +11,9 @@ export class AeronaveController {
       if (!codigo || !modelo || !tipo || capacidade === undefined || alcance === undefined) {
         return res.status(400).json({ error: 'Todos os campos sao obrigatorios' });
       }
+      if (!Object.values(TipoAeronave).includes(tipo)) {
+        return res.status(400).json({ error: `Tipo invalido. Use: ${Object.values(TipoAeronave).join(', ')}` });
+      }
       await aeronaveService.create({ codigo, modelo, tipo, capacidade: Number(capacidade), alcance: Number(alcance) });
       return res.status(201).json({ message: 'Aeronave cadastrada com sucesso' });
     } catch (err: any) {
@@ -43,6 +46,9 @@ export class AeronaveController {
   async update(req: Request, res: Response) {
     try {
       const { codigo } = req.params;
+      if (req.body.tipo && !Object.values(TipoAeronave).includes(req.body.tipo)) {
+        return res.status(400).json({ error: `Tipo invalido. Use: ${Object.values(TipoAeronave).join(', ')}` });
+      }
       await aeronaveService.update(codigo as string, req.body);
       return res.json({ message: 'Aeronave atualizada' });
     } catch (err: any) {

@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { EtapaService } from '../services/etapaService';
+import { StatusEtapa } from '../tipo/enums';
 
 const etapaService = new EtapaService();
 
@@ -11,7 +12,7 @@ export class EtapaController {
       if (!nome || !prazo) {
         return res.status(400).json({ error: 'Nome e prazo sao obrigatorios' });
       }
-      const id = await etapaService.create({ aeronaveCodigo: codigo as string, nome, prazo, status: 'PENDENTE' });
+      const id = await etapaService.create({ aeronaveCodigo: codigo as string, nome, prazo, status: StatusEtapa.PENDENTE });
       return res.status(201).json({ id, message: 'Etapa adicionada com sucesso' });
     } catch (err: any) {
       return res.status(400).json({ error: err.message });

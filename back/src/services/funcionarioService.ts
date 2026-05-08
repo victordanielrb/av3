@@ -22,13 +22,6 @@ export class FuncionarioService {
     return funcionarioRepo.findById(id);
   }
 
-  async update(id: number, data: Partial<NovoFuncionario & { senha: string }>): Promise<void> {
-    if (data.senha) {
-      data.senha = await bcrypt.hash(data.senha, 10);
-    }
-    await funcionarioRepo.update(id, data);
-  }
-
   async delete(id: number): Promise<void> {
     await funcionarioRepo.delete(id);
   }

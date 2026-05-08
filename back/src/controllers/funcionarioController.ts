@@ -11,6 +11,9 @@ export class FuncionarioController {
       if (!nome || !telefone || !endereco || !usuario || !senha || !nivelPermissao) {
         return res.status(400).json({ error: 'Todos os campos sao obrigatorios' });
       }
+      if (!Object.values(NivelPermissao).includes(nivelPermissao)) {
+        return res.status(400).json({ error: `Nivel invalido. Use: ${Object.values(NivelPermissao).join(', ')}` });
+      }
       const id = await funcionarioService.create({ nome, telefone, endereco, usuario, senha, nivelPermissao });
       return res.status(201).json({ id, message: 'Funcionario cadastrado com sucesso' });
     } catch (err: any) {

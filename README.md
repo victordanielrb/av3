@@ -103,7 +103,7 @@ O sistema implementa controle de acesso por perfis:
 - **Engenheiro**: Acesso à maioria das funcionalidades
 - **Operador**: Acesso limitado
 
-## 📚 Documentação Adicional
+## � Documentação Adicional
 
 - Backend: Consulte [back/README.md](back/README.md)
 - Frontend: Consulte [front/README.md](front/README.md)

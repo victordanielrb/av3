@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { PecaService } from '../services/pecaService';
+import { TipoPeca, StatusPeca } from '../tipo/enums';
 
 const pecaService = new PecaService();
 
@@ -10,6 +11,12 @@ export class PecaController {
       const { nome, tipo, fornecedor, status } = req.body;
       if (!nome || !tipo || !fornecedor || !status) {
         return res.status(400).json({ error: 'Todos os campos sao obrigatorios' });
+      }
+      if (!Object.values(TipoPeca).includes(tipo)) {
+        return res.status(400).json({ error: `Tipo invalido. Use: ${Object.values(TipoPeca).join(', ')}` });
+      }
+      if (!Object.values(StatusPeca).includes(status)) {
+        return res.status(400).json({ error: `Status invalido. Use: ${Object.values(StatusPeca).join(', ')}` });
       }
       const id = await pecaService.create({ aeronaveCodigo: codigo as string, nome, tipo, fornecedor, status });
       return res.status(201).json({ id, message: 'Peca adicionada com sucesso' });
@@ -34,6 +41,9 @@ export class PecaController {
       const { status } = req.body;
       if (!status) {
         return res.status(400).json({ error: 'Status e obrigatorio' });
+      }
+      if (!Object.values(StatusPeca).includes(status)) {
+        return res.status(400).json({ error: `Status invalido. Use: ${Object.values(StatusPeca).join(', ')}` });
       }
       await pecaService.updateStatus(id, status);
       return res.json({ message: 'Status atualizado' });

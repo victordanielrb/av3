@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 import { TesteService } from '../services/testeService';
+import { TipoTeste, ResultadoTeste } from '../tipo/enums';
 
 const testeService = new TesteService();
 
@@ -10,6 +11,12 @@ export class TesteController {
       const { tipo, resultado } = req.body;
       if (!tipo || !resultado) {
         return res.status(400).json({ error: 'Tipo e resultado sao obrigatorios' });
+      }
+      if (!Object.values(TipoTeste).includes(tipo)) {
+        return res.status(400).json({ error: `Tipo invalido. Use: ${Object.values(TipoTeste).join(', ')}` });
+      }
+      if (!Object.values(ResultadoTeste).includes(resultado)) {
+        return res.status(400).json({ error: `Resultado invalido. Use: ${Object.values(ResultadoTeste).join(', ')}` });
       }
       const id = await testeService.create({ aeronaveCodigo: codigo as string, tipo, resultado });
       return res.status(201).json({ id, message: 'Teste registrado com sucesso' });

@@ -22,10 +22,6 @@ export class FuncionarioRepository {
     return rows[0];
   }
 
-  async update(id: number, data: Partial<NovoFuncionario>): Promise<void> {
-    await db.update(funcionarios).set(data).where(eq(funcionarios.id, id));
-  }
-
   async delete(id: number): Promise<void> {
     await db.delete(funcionarios).where(eq(funcionarios.id, id));
   }
