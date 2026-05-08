@@ -1,0 +1,122 @@
+.item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.item-row-clickable {
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.item-row-clickable:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.item-row-clickable:focus-visible {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
+
+.item-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-row-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.item-row-subtitle {
+  font-size: 0.82rem;
+  color: #9ca3af;
+}
+
+.item-row-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-edit {
+  padding: 7px 18px;
+  border-radius: 8px;
+  border: 1.5px solid #86efac;
+  background: #f0fdf4;
+  color: #16a34a;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.btn-edit:hover {
+  background: #dcfce7;
+}
+
+.btn-delete {
+  padding: 7px 18px;
+  border-radius: 8px;
+  border: 1.5px solid #fca5a5;
+  background: #fff5f5;
+  color: #dc2626;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.btn-delete:hover {
+  background: #fee2e2;
+}
+
+.btn-add {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1.5px solid #86efac;
+  background: #f0fdf4;
+  color: #16a34a;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.btn-add:hover {
+  background: #dcfce7;
+}
+
+.btn-download {
+  padding: 7px 18px;
+  border-radius: 8px;
+  border: 1.5px solid #86efac;
+  background: #f0fdf4;
+  color: #16a34a;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btn-download:hover {
+  background: #dcfce7;
+}
+
+.btn-generate {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: 1.5px solid #93c5fd;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.btn-generate:hover {
+  background: #dbeafe;
+}

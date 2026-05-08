@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: aerocode_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: aerocode
+      MYSQL_DATABASE: aerocode
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-paerocode"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    container_name: aerocode_app
+    restart: always
+    environment:
+      PORT: 3000
+      DATABASE_URL: mysql://root:aerocode@mysql:3306/aerocode
+      JWT_SECRET: aerocode_secret_key_muito_segura
+    ports:
+      - "3000:3000"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql_data:

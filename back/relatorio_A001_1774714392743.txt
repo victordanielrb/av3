@@ -1,0 +1,34 @@
+============================================================
+        RELATORIO FINAL DE AERONAVE - AEROCODE
+============================================================
+
+INFORMACOES DA AERONAVE
+------------------------------------------------------------
+Codigo:      A001
+Modelo:      FalconX
+Tipo:        COMERCIAL
+Capacidade:  120 passageiros
+Alcance:     3000 km
+
+INFORMACOES DE ENTREGA
+------------------------------------------------------------
+Cliente:     Cliente XPTO
+Data:        20/10/2026
+
+PECAS UTILIZADAS
+------------------------------------------------------------
+1. Motor | Tipo: NACIONAL | Fornecedor: GE | Status: EM_TRANSPORTE
+
+ETAPAS REALIZADAS
+------------------------------------------------------------
+1. Montagem | Prazo: 10/10/2026 | Status: CONCLUIDA
+   Funcionarios: Operador Um
+2. TesteSolo | Prazo: 11/10/2026 | Status: CONCLUIDA
+
+RESULTADOS DOS TESTES
+------------------------------------------------------------
+1. Tipo: ELETRICO | Resultado: APROVADO
+
+============================================================
+Relatorio gerado em: 28/03/2026, 13:13:12
+============================================================
