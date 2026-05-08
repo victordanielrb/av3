@@ -19,7 +19,7 @@ export default function Sidebar() {
 
   return (
     <aside className="sidebar">
-      <div className="sidebar-brand" onClick={handleBrandClick} style={{ cursor: 'pointer' }}>AV2</div>
+      <div className="sidebar-brand" onClick={handleBrandClick} style={{ cursor: 'pointer' }}>av3</div>
       <nav className="sidebar-nav">
         {navItems.map(item => (
           <NavLink

@@ -4,7 +4,7 @@ Um sistema web completo para gerenciamento de produção, manutenção e control
 
 ## 📋 O que é o Projeto
 
-O **AeroCode** (AV2) é uma aplicação desenvolvida para centralizar e apoiar o acompanhamento do ciclo de produção e manutenção de aeronaves. O sistema oferece:
+O **AeroCode** (av3) é uma aplicação desenvolvida para centralizar e apoiar o acompanhamento do ciclo de produção e manutenção de aeronaves. O sistema oferece:
 
 - **Controle de Acesso**: Gestão por perfil (Administrador, Engenheiro, Operador)
 - **Gestão de Aeronaves**: Cadastro, edição, consulta de dados técnicos e status

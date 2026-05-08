@@ -27,7 +27,7 @@ export default function LoginPage() {
   return (
     <div className="login-bg">
       <div className="login-card">
-        <h1 className="login-title">AV2</h1>
+        <h1 className="login-title">av3</h1>
         <p className="login-subtitle">Faça login para continuar</p>
 
         <form onSubmit={handleSubmit} className="login-form">

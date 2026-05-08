@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "av2",
+      "name": "av3",
       "dependencies": {
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
