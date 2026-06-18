@@ -29,12 +29,15 @@ docker compose up --build
 ```
 
 Isso irá:
+- Subir o banco MySQL na porta **3307** e rodar as migrations automaticamente
 - Compilar e rodar o backend na porta **3000**
 - Compilar e rodar o frontend na porta **5173**
 
 Acesse a aplicação em: **http://localhost:5173**
 
 ### Opção 2: Manualmente (Sem Docker)
+
+Requer um servidor **MySQL 8** rodando localmente. Configure a variável `DATABASE_URL` em `back/.env` (veja `back/.env.example`).
 
 #### Backend
 
@@ -44,7 +47,7 @@ npm install
 npm run dev
 ```
 
-O backend rodará em `http://localhost:3000`
+O backend rodará em `http://localhost:3000` e aplicará as migrations automaticamente na inicialização.
 
 #### Frontend (em outro terminal)
 
@@ -89,7 +92,7 @@ O frontend rodará em `http://localhost:5173`
 - Node.js + TypeScript
 - Express.js
 - Drizzle ORM
-- PostgreSQL
+- MySQL 8
 
 ### Frontend
 - React
